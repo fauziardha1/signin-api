@@ -99,6 +99,6 @@ app.delete('/delete/:id', (req, res) => {
         .catch(err => res.status(400).json(err))
 })
 
-app.listen(5000, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Server Running on Port 5000`)
 });
