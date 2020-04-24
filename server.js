@@ -18,12 +18,12 @@ const app = Express();
 app.use(Express.json());
 app.use(cors())
 
-// app.get('/', (req, res) => {
-//     db.select('*').from('users')
-//         .then(resp => {
-//             res.json(resp);
-//         })
-// })
+app.get('/', (req, res) => {
+    // db.select('*').from('users')
+    // .then(resp => {
+    res.json("working");
+    // })
+})
 
 app.post('/signin/', (req, res) => {
     const { username, password } = req.body;
