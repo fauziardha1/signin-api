@@ -10,6 +10,8 @@ const db = knex({
         ssl: true
     }
 })
+const PORT = process.env.PORT || 5000;
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const app = Express();
 
@@ -100,6 +102,6 @@ app.delete('/delete/:id', (req, res) => {
         .catch(err => res.status(400).json(err))
 })
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server Running on Port 5000`)
+app.listen(PORT, () => {
+    console.log(`Server Running on Port ${PORT}`)
 });
