@@ -39,6 +39,7 @@ app.post('/signin/', (req, res) => {
                         res.json("Wrong password")
                     }
                 })
+                .catch(err => console.log("error bandingin password di tabel login"))
         })
         .catch(err => res.json(err))
 
@@ -63,6 +64,7 @@ app.post('/register', (req, res) => {
                     })
                     .returning('*')
                     .then(resp => res.json({ status: 'success' }))
+                    .catch(err => res.json("failed insert to table users"))
             })
             .then(trx.commit)
             .catch(trx.rollback)
@@ -75,6 +77,7 @@ app.get('/users', (req, res) => {
         .then(resp => {
             res.json(resp);
         })
+        .catch(err => console.log("failed to get users", err))
 })
 
 app.delete('/delete/:id', (req, res) => {
